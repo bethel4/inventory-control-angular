@@ -1,0 +1,23 @@
+<app-toolbar [actions]="actions"
+            (actionClick) ="onCreate()">
+</app-toolbar>
+     <p-table #dt1 [columns]="columns" [value]="data" >
+      
+      
+       <ng-template pTemplate="body" let-rowData let-columns="columns" let-item>
+         <tr>
+           <td *ngFor="let col of columns">
+             {{rowData[col.name]}}
+           </td>
+           <td *ngIf="sideButtons.length > 0" class="action">
+             <button *ngFor="let sideButton of sideButtons" class="side-button" pButton type="button"
+               [class]="sideButton.cssClass" [icon]="sideButton.icon"  pTooltip="View" [disabled]="sideButton.disabled"
+               (click)="sideButton.handler(item)"></button>
+         </tr>
+       </ng-template>
+       <ng-template pTemplate="emptymessage">
+         <tr>
+           <td colspan="7">No work Package found.</td>
+         </tr>
+       </ng-template>
+     </p-table>

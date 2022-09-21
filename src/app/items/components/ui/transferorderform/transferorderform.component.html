@@ -1,0 +1,75 @@
+<h2 style="font-weight: bolder; padding-left: 20px; padding-bottom: 5px; padding-top: 5px;">New Item</h2>
+<form [formGroup]="form">
+  <div class="row">
+    <div >
+      <div class="row">
+        <div class="float-container">
+          <div class="float-child">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Name</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="name"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.name">{{
+                    displayMessage.name
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+            
+              <div class="p-field p-col">
+                <label>Suk</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div> 
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Unit</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="float-container">
+          <div class="float-child">
+            <h3 style="font-weight: bolder;">Sale Information</h3>
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Selling price</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="float-child">
+            <h3 style="font-weight: bolder;">Purchase Information</h3>
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Purchase Price</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div> 
+            </div> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div style="margin-top: 2px;">
+  <app-list [columns]="columns"
+       [items]="data"></app-list>
+
+</div>

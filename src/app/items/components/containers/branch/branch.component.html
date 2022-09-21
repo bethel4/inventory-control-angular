@@ -1,0 +1,10 @@
+<app-toolbar [actions]="actions"
+(click)="onCreate()" >
+</app-toolbar>
+
+<app-list [columns]="columns"
+        [items]="item"
+        [hasAction]="true"
+       [actions]="tableActions"
+       (actionClick)="onClick($event)"
+      ></app-list>

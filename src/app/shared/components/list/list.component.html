@@ -1,0 +1,52 @@
+<p-table #dt [value]="items" (onHeaderCheckboxToggle)="onSelect()" (onRowSelect)="onSelect()" (onRowUnselect)="onSelect()" [(selection)]="checkedData" 
+ [columns]="columns" [style]="{width:'100%'}" scrollHeight="400px">
+  <ng-template pTemplate="caption">
+   <h1>{{caption}}</h1>
+   <!-- <h3> {{requestnumid}}{{request}}</h3>
+   <h3>{{requestnum}}{{numofrequest}}</h3> -->
+  </ng-template>
+  <ng-template pTemplate="colgroup" let-columns>
+    <colgroup>
+        <col *ngIf="checkbox" style="width: 3em;">
+        <col *ngFor="let col of columns" >
+        <col *ngIf="hasAction" class="action">
+    </colgroup>
+</ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngIf="checkbox" style="width: 3em;">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th *ngFor="let column of columns">
+        {{ column.label }}
+        <p-dropdown *ngIf="column.hasFilter" [style]="{'width':'100%','min-width':'100%'}" [options]="columnFilterOptions" [appendTo]="'body'" (onChange)="dt.filter($event.value, column.name, 'equals')"></p-dropdown>
+      </th>
+      <th *ngIf="hasAction" class="action">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-d>
+    <tr>
+      <td *ngIf="checkbox">
+        <p-tableCheckbox [value]="d"></p-tableCheckbox>
+      </td>
+      <td *ngFor="let column of columns">
+       <span *ngIf="column.type==='date'">{{d[column.name] |date:'medium'}}</span>
+       <span *ngIf="column.type===undefined">{{d[column.name]}}</span>
+      </td>
+      <ng-container *ngIf="hasAction">
+        <td>
+          <button *ngFor="let action of actions"
+                  mat-stroked-button
+                  [disabled]="(d.disable && action.disable == undefined) || (d.disable && action.disable)"
+                  [matTooltip]="action.tooltip"
+                  class="icon mr-3"
+                  [color]="action.color"
+                  (click)="onClick(d,action.icon)">
+            <mat-icon>{{action.icon}}</mat-icon>
+          </button>
+          <!-- [disabled]="(d.status==='Closed' || (d.status === 'submitted' && (action.icon=='delete' || action.icon=='edit')))" -->
+        </td>
+      </ng-container>
+    </tr>
+  </ng-template>
+</p-table>

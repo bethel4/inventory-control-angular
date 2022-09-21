@@ -1,0 +1,29 @@
+.float-container {
+    border: 3px solid #fff;
+    padding-left: 425px;
+    padding-top: 150px;
+  
+
+.float-child {
+    width: 563px;
+    float: left;
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid;
+  }
+    
+}
+.grid-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto  auto;
+    padding: 50px;
+    grid-column-gap: 1px;
+  }
+  .grid-item {
+    padding: 10px;
+    text-align: left;
+    
+   
+  }
+  

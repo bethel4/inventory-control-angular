@@ -1,0 +1,31 @@
+.example-container {
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    box-shadow: 5px 5px 5px grey;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto  auto;
+    padding: 10px;
+  }
+  .grid-item {
+    padding: 20px;
+    font-size: 30px;
+  }
+  
+  .float-container {
+    border: 3px solid #fff;
+   margin: 0%;
+  
+  }
+  
+  
+  
+  .float-child {
+    width: 50%;
+    float: left;
+    padding: 10px;
+  
+  }

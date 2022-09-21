@@ -1,0 +1,160 @@
+<h2 style="font-weight: bolder; padding-left: 20px; padding-bottom: 5px; padding-top: 5px;">Organization Profile</h2>
+<form [formGroup]="form">
+  <div class="row">
+    <div >
+      <div class="row">
+        <div class="float-container">
+          <div class="float-child">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Organization Name</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="organization_Name"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.organization_Name">{{
+                    displayMessage.organization_Name
+                  }}</mat-error>
+                </mat-form-field>
+                <label>Contact First Name</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="contact_first_name"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.contact_first_name">{{
+                    displayMessage.contact_first_name
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Contact Email</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Contact Email"
+                  formControlName="contact_email"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.contact_email">{{
+                    displayMessage.contact_email
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Contact Phone</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Contact Phone"
+                  formControlName="contact_phone_no"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.contact_phone_no">{{
+                    displayMessage.contact_phone_no
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div> 
+          </div>
+        </div>
+          <div class="p-fluid p-formgrid p-grid">
+            <div class="float-child">
+            <div class="p-field p-col">
+              <label>Address</label>
+              <mat-form-field appearance="outline">
+                <input  matInput
+                placeholder="Name"
+                formControlName="buesiness_location"
+                autocomplete="username"
+                (blur)='onBlur()'>
+                <mat-error *ngIf="displayMessage.buesiness_location">{{
+                  displayMessage.buesiness_location
+                }}</mat-error>
+              </mat-form-field>
+              <label>Country</label>
+              <mat-form-field appearance="outline">
+                <input  matInput
+                placeholder="Country"
+                formControlName="country"
+                autocomplete="username"
+                (blur)='onBlur()'>
+                <mat-error *ngIf="displayMessage.country">{{
+                  displayMessage.country
+                }}</mat-error>
+              </mat-form-field>
+              <label>City</label>
+              <mat-form-field appearance="outline">
+                <input  matInput
+                placeholder="City"
+                formControlName="city"
+                (blur)='onBlur()'>
+                <mat-error *ngIf="displayMessage.city">{{
+                  displayMessage.city
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="float-child">
+            <div class="p-field p-col">
+              <label>City</label>
+              <mat-form-field appearance="outline">
+                <input  matInput
+                placeholder="Name"
+                formControlName="city"
+                autocomplete="username"
+                (blur)='onBlur()'>
+                <mat-error *ngIf="displayMessage.city">{{
+                  displayMessage.city
+                }}</mat-error>
+              </mat-form-field>
+              <label>Zip Code</label>
+              <mat-form-field appearance="outline">
+                <input  matInput
+                placeholder="Country"
+                formControlName="zip_code"
+                autocomplete="username"
+                (blur)='onBlur()'>
+                <mat-error *ngIf="displayMessage.zip_code">{{
+                  displayMessage.zip_code
+                }}</mat-error>
+              </mat-form-field>
+              <label>State</label>
+              <mat-form-field appearance="outline">
+                <input  matInput
+                placeholder="State"
+                formControlName="state"
+                (blur)='onBlur()'>
+                <mat-error *ngIf="displayMessage.state">{{
+                  displayMessage.state
+                }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="button-row" >
+    <button
+      pButton
+      style="align-items: center;"
+      type="submit"
+      icon="pi pi-save"
+      label="Save"
+      [disabled]="!form.valid"
+      (click)="onSubmit()"
+    ></button>
+    &nbsp;
+    <button
+      pButton
+      class="ui-button-danger"
+      type="button"
+      icon="pi pi-times-circle"
+      label="Cancel"
+      (onClick)="onDelete()"
+    ></button>
+  </div>
+</form>

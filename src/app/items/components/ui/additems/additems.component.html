@@ -1,0 +1,173 @@
+<h2 style="font-weight: bolder; padding-left: 20px;">New Item</h2>
+<form [formGroup]="form">
+  <div class="row">
+    <div >
+      <div class="row">
+        <div class="float-container">
+          <div class="float-child">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Name</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="name"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.name">{{
+                    displayMessage.name
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="p-field p-col">
+                <label>Suk</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder" 
+                  formControlName="suk">
+                </mat-form-field>
+              </div>
+            </div> <br>
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Unit</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder"
+                  formControlName="unit">
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="p-field p-col">
+                <label>Production Date</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder"
+                  formControlName="price">
+                </mat-form-field>
+              </div>
+            </div>
+            <br>
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Expire Date</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder"
+                  formControlName="expiryDate">
+                </mat-form-field>
+              </div> <br>
+              <div class="p-field p-col">
+                <label>Quantity</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder"
+                  formControlName="quantity" >
+                </mat-form-field>
+              </div>
+            </div> <br>
+          </div>
+          <div class="float-child">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Available</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder"
+                  formControlName="available">
+                </mat-form-field>
+              </div> <br>
+              <div class="p-field p-col">
+                <label>Weight</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder"
+                  >
+                </mat-form-field>
+              </div><br>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="float-container">
+          <div class="float-child">
+            <h3 style="font-weight: bolder;">Sale Information</h3>
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Selling price</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder"
+                  formControlName="price">
+                </mat-form-field>
+              </div> <br>
+              <div class="p-field p-col">
+                <label>CreatedBy</label>
+                <mat-form-field appearance="outline"
+                  formControlName="createdby">
+                  <input matInput placeholder="Placeholder" >
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="p-field p-col">
+                <label>Tax</label><br>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+            <br>
+            <div class="p-fluid p-formgrid p-grid">
+             <label >Description</label>
+              <div class="p-field p-col">
+                <h3 style="margin-bottom: 2px;"></h3>
+                <textarea class="form-control" 
+                  formControlName="description"
+               ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="float-child">
+            <h3 style="font-weight: bolder;">Purchase Information</h3>
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Purchase Price</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div> <br>
+              <div class="p-field p-col">
+                <label>Account</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div> <br>
+            <label >Description</label>
+            <div class="p-field p-col">
+              <h3 style="margin-bottom: 2px;"></h3>
+              <textarea class="form-control  "
+               ></textarea>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-row" >
+    <button
+      pButton
+      style="align-items: center;"
+      type="submit"
+      icon="pi pi-save"
+      label="Save"
+      [disabled]="!form.valid"
+      (click)="onSubmit()"
+    ></button>
+    &nbsp;
+    <button
+      pButton
+      class="ui-button-danger"
+      type="button"
+      icon="pi pi-times-circle"
+      label="Cancel"
+      (onClick)="onCancel()"
+    ></button>
+  </div>
+</form>

@@ -1,0 +1,35 @@
+.example-container {
+    height: 850px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    overflow: auto;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: auto;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    position: fixed; 
+  }
+  
+  .example-sidenav {
+    padding: 10px;
+    width: 280px;
+    overflow: auto;
+  }
+  body{
+    overflow-y: hidden;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto  auto auto;
+    padding: 5px;
+    grid-column-gap: 1px;
+  }
+  .grid-item {
+    padding: 10px;
+    text-align: left;
+   
+  }

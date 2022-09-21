@@ -1,0 +1,167 @@
+<h2 style="font-weight: bolder; padding-left: 20px; padding-bottom: 5px; padding-top: 5px;">New Sale Order</h2>
+<form [formGroup]="form">
+  <div class="row">
+    <div >
+      <div class="row">
+        <div class="float-container">
+          <div class="float-child">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Name</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="name"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.name">{{
+                    displayMessage.name
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Suk</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Suk</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Suk</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div> 
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Unit</label>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-row" >
+    <button
+      pButton
+      style="align-items: center;"
+      type="submit"
+      icon="pi pi-save"
+      label="Save"
+      [disabled]="!form.valid"
+    ></button>
+    &nbsp;
+    <button
+      pButton
+      class="ui-button-danger"
+      type="button"
+      icon="pi pi-times-circle"
+      label="Cancel"
+      (onClick)="onCancel()"
+    ></button>
+  </div>
+</form>
+  <p-table [value]="invoice$ |async" dataKey="id" editMode="row">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Item Details</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th>Discount</th>
+            <th>Tax</th>
+            <th>Amount</th>
+            <th style="width:8rem"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="product">
+          <td pEditableColumn>
+            <p-cellEditor>
+                <ng-template pTemplate="input">
+                    <p-dropdown [options]="statuses"  [style]="{'width':'100%'}" ></p-dropdown>
+                </ng-template>
+                <ng-template pTemplate="output">
+                    {{product.inventoryStatus}}
+                </ng-template>
+            </p-cellEditor>
+        </td>
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="product.quantity" required>
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{product.quantity}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <p-dropdown [options]="statuses" (onChange)="item($event)"  [style]="{'width':'100%'}"></p-dropdown>
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{product.price}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <!-- <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="product.price">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{product.discount}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td pEditableColumn>
+              <p-cellEditor>
+                  <ng-template pTemplate="input">
+                      <input pInputText type="text" [(ngModel)]="product.price">
+                  </ng-template>
+                  <ng-template pTemplate="output">
+                      {{product.discount}}
+                  </ng-template>
+              </p-cellEditor>
+          </td> -->
+          <td>
+                <ng-template pTemplate="input">
+                    <input pInputText type="text" [(ngModel)]="product.price">
+                </ng-template>
+                <ng-template pTemplate="output">
+                   
+                </ng-template>
+        </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<!-- <div style="margin-top: 2px;">
+  <p-table [columns]="columns" [value]="data">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.name]}}
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+</div> -->

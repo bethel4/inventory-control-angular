@@ -1,0 +1,71 @@
+<div class="main-container" class="donotprint">
+  <co-header (toggle)="sidenav.toggle() " (logout)="onLogout()"></co-header>
+  <mat-sidenav-container class="example-container"  autosize style="background-color: white;">
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
+                 [fixedInViewport]="true"  
+                   >
+               <h3 class="main-menu-header">MENU</h3>
+               <p-panelMenu [model]="menu$ | async"   (select)="onSelect($event)"  styleClass="panel"></p-panelMenu> 
+               <!-- <mat-nav-list  >
+                <a mat-list-item routerLink="/home" style="color: white;">
+                    <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+                </a>
+                <a mat-list-item routerLink="/home" style="color: white;">
+                  <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+              </a>
+              <a mat-list-item routerLink="/home" style="color: white;">
+                <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+              
+            </a>
+          
+           
+              </mat-nav-list> -->
+              
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px' }" styleClass="test">
+        <mat-nav-list  >
+          <a mat-list-item routerLink="/main/items/orgnzation-profile" >
+              <mat-icon>people</mat-icon> <span class="nav-caption">Organzational Profile</span>
+          </a>
+          <a mat-list-item routerLink="/main/items/warehouse">
+            <mat-icon>account_balance</mat-icon> <span class="nav-caption">Ware House</span>
+        </a>
+        <a mat-list-item routerLink="/main/items/branch" >
+          <mat-icon>home</mat-icon> <span class="nav-caption">Branch</span>
+      </a>
+      <a mat-list-item routerLink="/home" >
+        <mat-icon>account_circle</mat-icon> <span class="nav-caption">Role</span>
+    </a>
+  
+     
+        </mat-nav-list>
+
+      </p-overlayPanel>
+      <p-toolbar  class="donotprint">
+        <div class="p-toolbar-group-left" style="background-color:grey;">
+         
+        </div>
+        
+        <div class="p-toolbar-group-right" >
+          <p-button type="button" class="p-button-info" (click)="op.toggle($event)" icon="pi 
+          pi-cog"></p-button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button pButton pRipple type="button"  icon="pi pi-bell" class="p-button-rounded p-button-info p-button-outlined">
+          </button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-info p-button-outlined">
+          </button>&nbsp;&nbsp;&nbsp;&nbsp;
+         
+        </div>
+        
+    </p-toolbar>
+    
+      <div class="main-content">
+        <div class="sidebar-menu-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+     
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

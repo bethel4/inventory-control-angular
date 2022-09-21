@@ -1,0 +1,25 @@
+<div style="padding-left: 50px;">
+    <button pButton pRipple  type="button" label="New Warehouse" icon="pi pi-plus" 
+                class="p-button-text "(click)="onCreate()"></button>
+</div>
+<div class="float-child  grid-container" style="padding-left:30px;">
+    <div  *ngFor="let col of HEROES">
+        <div class="grid-item">
+            <p-card  [style]="{'width': '30rem', 'margin-bottom': '2em'}">
+              <div style="text-align: left;;">
+               <div style="padding-left: 350px;">
+               <div class="button-row" >
+                <button pButton pRipple  type="button" label="Edit" (click)="onEdit(col)"
+                class="p-button-text "></button>
+                <button pButton pRipple  type="button" label="Delete" (click)="onDelete(col)"
+                class="p-button-text "></button>
+               </div>
+               </div>
+               <h2>{{col.name}}</h2>
+               <h3 >{{col.label}}</h3>
+               <h4>TO BE DELIVERED</h4>
+              </div>
+           </p-card>
+           </div>
+    </div>
+ </div>

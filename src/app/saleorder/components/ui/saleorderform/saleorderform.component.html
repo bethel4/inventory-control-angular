@@ -1,0 +1,119 @@
+<h2 style="font-weight: bolder; padding-left: 20px; padding-bottom: 5px; padding-top: 5px;">New Sale Order</h2>
+<form [formGroup]="form">
+  <div class="row">
+    <div >
+      <div class="row">
+        <div class="float-container">
+          <div class="float-child">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Sale Person</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="sales_Person_ID"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.sales_Person_ID">{{
+                    displayMessage.sales_Person_ID
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Sale Order_Date</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="sale_order_date"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.sale_order_date">{{
+                    displayMessage.sale_order_date
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Payment Term</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="payment_term"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.payment_term">{{
+                    displayMessage.payment_term
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Shipment Date</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="shipment_date"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.shipment_date">{{
+                    displayMessage.shipment_date
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div> 
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Due Date</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="due_date"
+                  autocomplete="username"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.due_date">{{
+                    displayMessage.due_date
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-row" >
+    <button
+      pButton
+      style="align-items: center;"
+      type="submit"
+      icon="pi pi-save"
+      label="Save"
+      [disabled]="!form.valid"
+    ></button>
+    &nbsp;
+    <button
+      pButton
+      class="ui-button-danger"
+      type="button"
+      icon="pi pi-times-circle"
+      label="Cancel"
+      (onClick)="onCancel()"
+    ></button>
+  </div>
+</form>
+<div style="margin-top: 2px;">
+  <p-table [columns]="columns" [value]="data">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.name]}}
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+</div>

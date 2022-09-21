@@ -1,0 +1,109 @@
+<h2 style="font-weight: bolder; padding-left: 20px; padding-bottom: 5px; padding-top: 5px;">New Item</h2>
+<form [formGroup]="form">
+  <div class="row">
+    <div >
+      <div class="row">
+        <div class="float-container">
+          <div class="float-child">
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>Branch Name</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="warehouse_name"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.branch_name">{{
+                    displayMessage.branch_name
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Email</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="email"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.email">{{
+                    displayMessage.email
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Phone Number</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="phone_no"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.phone_no">{{
+                    displayMessage.phone_no
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>Country</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="country"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.country">{{
+                    displayMessage.country
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div> 
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col">
+                <label>State</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="state"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.state">{{
+                    displayMessage.state
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="p-field p-col">
+                <label>City</label>
+                <mat-form-field appearance="outline">
+                  <input  matInput
+                  placeholder="Name"
+                  formControlName="city"
+                  (blur)='onBlur()'>
+                  <mat-error *ngIf="displayMessage.city">{{
+                    displayMessage.city
+                  }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-row" >
+    <button
+      pButton
+      style="align-items: center;"
+      type="submit"
+      icon="pi pi-save"
+      label="Save"
+      [disabled]="!form.valid"
+      (click)="onSubmit()"
+    ></button>
+    &nbsp;
+    <button
+      pButton
+      class="ui-button-danger"
+      type="button"
+      icon="pi pi-times-circle"
+      label="Cancel"
+      (click)="onNoClick()"
+    ></button>
+  </div>
+</form>

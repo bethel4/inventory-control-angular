@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  background-color: #1976d2;
+  align-items: center;
+  color: lightgray;
+  position: sticky;
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000;
+}
+
+.title {
+  margin-left: 20px;
+  font-size: 16pt;
+}
+
+.user-info {
+  font-weight: normal;
+  font-size: 12pt;
+  margin-right: 20px;
+  color: lightgray;
+}
+
+.toggle-btn {
+  margin-left: 10px;
+  color: lightgray;
+}
+
+.e-btn.e-flat:hover,
+.e-btn.e-outline:hover {
+  color: white;
+  background-color: #3f51b5;
+}
+
+span.e-btn-icon {
+  font-size: 20px;
+}
+
+.logout-btn {
+  color: lightgray;
+  margin-right: 10px;
+}
+
+.e-menu:before {
+  content: "\e714";
+}
+
+.e-logout:before {
+  content: "\e825";
+}
+
+.e-cross-close:before {
+  content: "\e7e9";
+}
+
